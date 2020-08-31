@@ -1,0 +1,36 @@
+{
+  "name": "runtime-cast",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./lib/index.ts",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "webpack",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroljub1995/runtime-cast.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miroljub1995/runtime-cast/issues"
+  },
+  "homepage": "https://github.com/miroljub1995/runtime-cast#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/joi": "^14.3.4",
+    "@types/mocha": "^8.0.3",
+    "joi": "^17.2.1",
+    "ts-loader": "^8.0.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

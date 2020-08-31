@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib/",
+    "noImplicitAny": true,
+    "module": "CommonJS",
+    "target": "es5",
+    "declaration": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ]
+  }
+}
