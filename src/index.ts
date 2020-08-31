@@ -2,7 +2,7 @@ import * as Joi from 'joi'
 
 class T {
   static object<T extends { [key: string]: Type<unknown> }>(obj: T) {
-    const objectKeys = {} as Joi.SchemaMap
+    const objectKeys: Joi.SchemaMap = {}
     for (const [key, value] of Object.entries(obj)) {
       objectKeys[key] = value.getJoiSchema()
     }
