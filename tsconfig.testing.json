@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./lib/",
     "noImplicitAny": true,
     "module": "CommonJS",
     "target": "ESNext",
@@ -10,5 +9,8 @@
       "DOM",
       "DOM.Iterable"
     ]
-  }
+  },
+  "include": [
+    "tests"
+  ]
 }

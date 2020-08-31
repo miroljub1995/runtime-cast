@@ -28,8 +28,8 @@ class T {
 }
 
 type Unwrap<T> = T extends Type<infer U> ?
-  U extends object ? { [P in keyof U]: Unwrap<U[P]> } : U :
-  T extends object ? { [P in keyof T]: Unwrap<T[P]> } : T
+  U extends object ? { [K in keyof U]: Unwrap<U[K]> } : U :
+  T extends object ? { [K in keyof T]: Unwrap<T[K]> } : T
 
 class Type<T> {
   constructor(private schema: Joi.AnySchema) {
