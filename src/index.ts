@@ -39,6 +39,10 @@ class Type<T> {
     return new Type<T | undefined>(this.schema.optional())
   }
 
+  nullable() {
+    return new Type<T | null>(this.schema)
+  }
+
   getJoiSchema() {
     return this.schema
   }

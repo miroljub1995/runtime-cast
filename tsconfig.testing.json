@@ -2,18 +2,13 @@
   "compilerOptions": {
     "outDir": "./lib/",
     "noImplicitAny": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "target": "ESNext",
-    "declaration": true,
     "strict": true,
     "lib": [
       "ESNext",
       "DOM",
       "DOM.Iterable"
-    ],
-    "esModuleInterop": true
-  },
-  "include": [
-    "src"
-  ]
+    ]
+  }
 }
