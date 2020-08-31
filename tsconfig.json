@@ -11,7 +11,8 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src"

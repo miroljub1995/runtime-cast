@@ -2,7 +2,7 @@ import T from '../src/index';
 import { expect } from 'chai';
 import 'mocha';
 
-describe('Test boolean', () => {
+describe('Test', () => {
   it('should execute', () => {
     const schema = T.object({
       a: T.boolean()
