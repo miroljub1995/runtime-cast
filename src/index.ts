@@ -1,11 +1,10 @@
 import * as Joi from 'joi'
 
 class T {
-  static object<T>(obj: { [Key in keyof T]: T[Key] }) {
+  static object<T extends { [key: string]: Type<unknown> }>(obj: T) {
     const objectKeys = {} as Joi.SchemaMap
-
     for (const [key, value] of Object.entries(obj)) {
-      objectKeys[key] = (value as Type<any>).getJoiSchema()
+      objectKeys[key] = value.getJoiSchema()
     }
 
     return new Type<T>(Joi.object(objectKeys).required())
