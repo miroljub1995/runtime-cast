@@ -2,7 +2,7 @@ name: Publish npm
 
 on:
   release:
-    type: [ published ]
+    type: published
 jobs:
   build:
     runs-on: ubuntu-latest
