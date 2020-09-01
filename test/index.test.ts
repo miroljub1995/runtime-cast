@@ -65,5 +65,18 @@ describe('Test', () => {
     })
   })
 
+  it('should cast OR with boolean', () => {
+    const schema = T.object({
+      a: T.boolean().or(T.string()).or(T.object({
+        b: T.string()
+      }))
+    })
 
+    const val = schema.cast({
+      a: true
+    })
+    expect(val).to.deep.equals({
+      a: true
+    })
+  })
 })

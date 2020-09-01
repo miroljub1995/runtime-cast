@@ -43,6 +43,10 @@ class Type<T> {
     return new Type<T | null>(this.schema)
   }
 
+  or<U extends Type<any>>(obj: U) {
+    return new Type<T | (U extends Type<infer C> ? C : U)>(Joi.alternatives([this.schema, obj.getJoiSchema()]).required())
+  }
+
   getJoiSchema() {
     return this.schema
   }
