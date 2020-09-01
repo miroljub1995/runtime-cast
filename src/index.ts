@@ -42,9 +42,9 @@ class T {
   }
 }
 
-type Unwrap<T> = T extends Type<infer U> ?
-  U extends object ? { [K in keyof U]: Unwrap<U[K]> } : U :
-  T extends object ? { [K in keyof T]: Unwrap<T[K]> } : T
+export type TypeOf<T> = T extends Type<infer U> ?
+  U extends object ? { [K in keyof U]: TypeOf<U[K]> } : U :
+  T extends object ? { [K in keyof T]: TypeOf<T[K]> } : T
 
 class Type<T> {
   constructor(private schema: Joi.AnySchema) {
@@ -68,7 +68,7 @@ class Type<T> {
     })
     if (typeof error !== 'undefined')
       throw error;
-    return value as Unwrap<T>
+    return value as TypeOf<T>
   }
 }
 

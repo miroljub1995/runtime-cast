@@ -1,6 +1,6 @@
-import T from '../src/index';
 import { expect } from 'chai';
 import 'mocha';
+import T from '../src/index';
 
 describe('Test', () => {
   it('should cast boolean', () => {
