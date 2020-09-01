@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "bundle": "webpack",
-    "build": "tsc",
-    "test": "env TS_NODE_PROJECT=\"tsconfig.testing.json\" mocha -r ts-node/register test/**/*.test.ts"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register test/**/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/miroljub1995/runtime-cast#readme",
   "dependencies": {
-    "@types/joi": "^14.3.4",
-    "joi": "^17.2.1"
+    "@hapi/joi": "^17.1.1",
+    "@types/hapi__joi": "^17.1.4"
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",

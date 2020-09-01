@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import 'mocha';
 
 describe('Test', () => {
-  it('should execute', () => {
+  it('should cast boolean', () => {
     const schema = T.object({
       a: T.boolean()
     })
@@ -11,6 +11,36 @@ describe('Test', () => {
     const val = schema.cast({ a: true })
 
     expect(val).to.deep.equal({ a: true })
+  })
+
+  it('should cast string', () => {
+    const schema = T.object({
+      a: T.string()
+    })
+
+    const val = schema.cast({ a: "true" })
+
+    expect(val).to.deep.equal({ a: "true" })
+  })
+
+  it('should cast number', () => {
+    const schema = T.object({
+      a: T.number()
+    })
+
+    const val = schema.cast({ a: 1 })
+
+    expect(val).to.deep.equal({ a: 1 })
+  })
+
+  it('should cast nullable', () => {
+    const schema = T.object({
+      a: T.number().nullable()
+    })
+
+    const val = schema.cast({ a: null })
+
+    expect(val).to.deep.equal({ a: null })
   })
 
   it('should fail', () => {
@@ -67,7 +97,7 @@ describe('Test', () => {
 
   it('should cast OR with boolean', () => {
     const schema = T.object({
-      a: T.boolean().or(T.string()).or(T.object({
+      a: T.union(T.boolean(), T.string(), T.object({
         b: T.string()
       }))
     })
@@ -82,7 +112,7 @@ describe('Test', () => {
 
   it('should fail casting OR with invalid type', () => {
     const schema = T.object({
-      a: T.string().or(T.object({
+      a: T.union(T.string(), T.object({
         b: T.string()
       }))
     })
@@ -94,7 +124,7 @@ describe('Test', () => {
 
   it('should key with OR be required by default', () => {
     const schema = T.object({
-      a: T.string().or(T.object({
+      a: T.union(T.string(), T.object({
         b: T.string()
       }))
     })

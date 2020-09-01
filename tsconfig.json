@@ -5,6 +5,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "declaration": true,
+    "skipLibCheck": true,
     "strict": true,
     "lib": [
       "ESNext",
@@ -12,9 +13,11 @@
       "DOM.Iterable"
     ],
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true
   },
   "include": [
-    "src"
+    "src",
+    "test"
   ]
 }
