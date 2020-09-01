@@ -22,7 +22,7 @@ class T {
     return new Type<number>(Joi.number().required())
   }
 
-  static array<T extends Type<any>>(obj: T) {
+  static array<T>(obj: Type<T>) {
     return new Type<T[]>(Joi.array().items(obj.getJoiSchema()).required())
   }
 }

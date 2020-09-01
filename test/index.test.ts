@@ -79,4 +79,26 @@ describe('Test', () => {
       a: true
     })
   })
+
+  it('should fail casting OR with invalid type', () => {
+    const schema = T.object({
+      a: T.string().or(T.object({
+        b: T.string()
+      }))
+    })
+
+    expect(() => schema.cast({
+      a: true
+    })).to.throw()
+  })
+
+  it('should key with OR be required by default', () => {
+    const schema = T.object({
+      a: T.string().or(T.object({
+        b: T.string()
+      }))
+    })
+
+    expect(() => schema.cast({})).to.throw()
+  })
 })
