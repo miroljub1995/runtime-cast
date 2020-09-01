@@ -10,13 +10,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      NODE_VERSION: '12.x'
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
+    - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: ${{ env.NODE_VERSION }}
     - run: npm ci
     - run: npm run build
     - run: npm run bundle
