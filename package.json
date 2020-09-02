@@ -1,6 +1,6 @@
 {
   "name": "runtime-cast",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "This is library for checking json objects in runtime",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
