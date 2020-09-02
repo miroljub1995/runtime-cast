@@ -95,6 +95,14 @@ describe('Test', () => {
     })
   })
 
+  it('should cast empty array', () => {
+    const schema = T.array(T.boolean())
+
+    const val = schema.cast([])
+
+    expect(val).to.deep.equals([])
+  })
+
   it('should cast OR with boolean', () => {
     const schema = T.object({
       a: T.union(T.boolean(), T.string(), T.object({

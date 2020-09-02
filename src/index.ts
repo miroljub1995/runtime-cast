@@ -7,23 +7,23 @@ class T {
       objectKeys[key] = value.getJoiSchema()
     }
 
-    return new Type<T>(Joi.object(objectKeys).required())
+    return new Type<T>(Joi.object(objectKeys))
   }
 
   static boolean() {
-    return new Type<boolean>(Joi.boolean().required())
+    return new Type<boolean>(Joi.boolean())
   }
 
   static string() {
-    return new Type<string>(Joi.string().required())
+    return new Type<string>(Joi.string())
   }
 
   static number() {
-    return new Type<number>(Joi.number().required())
+    return new Type<number>(Joi.number())
   }
 
   static array<T>(obj: Type<T>) {
-    return new Type<T[]>(Joi.array().items(obj.getJoiSchema()).required())
+    return new Type<T[]>(Joi.alternatives(Joi.array().items(obj.getJoiSchema()), Joi.array().length(0)))
   }
 
   static union<T1, T2>(t1: Type<T1>, t2: Type<T2>): Type<T1 | T2>
@@ -38,7 +38,7 @@ class T {
       altSchemas = [...altSchemas, t4.getJoiSchema()]
     if (typeof t5 !== 'undefined')
       altSchemas = [...altSchemas, t5.getJoiSchema()]
-    return new Type<T1 | T2 | T3 | T4 | T5>(Joi.alternatives(altSchemas).required())
+    return new Type<T1 | T2 | T3 | T4 | T5>(Joi.alternatives(altSchemas))
   }
 }
 
@@ -64,7 +64,8 @@ class Type<T> {
 
   cast<U>(value: U) {
     const { error } = this.schema.validate(value, {
-      abortEarly: true
+      abortEarly: true,
+      presence: 'required'
     })
     if (typeof error !== 'undefined')
       throw error;
